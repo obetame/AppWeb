@@ -77,8 +77,8 @@
 			alert: {
 				content: '输入不允许为空!',
 				ok: '好的'
-			}
-		},
+			},
+			ready: false },
 		created: function created() {
 			var _this = this;
 
@@ -90,6 +90,9 @@
 				_this.timeTaskValue = data;
 				_this.timeTask();
 			};
+		},
+		mounted: function mounted() {
+			this.ready = true;
 		},
 
 		methods: {

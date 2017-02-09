@@ -17,6 +17,7 @@ let Vue_App = new Vue({
 			content: '输入不允许为空!',
 			ok: '好的'
 		},
+		ready: false, //页面为准备好
 	},
 	created() {
 		this.localStorage = this.getLocalStore().reverse();
@@ -25,6 +26,9 @@ let Vue_App = new Vue({
 			this.timeTaskValue = data;
 			this.timeTask();
 		}
+	},
+	mounted() {
+		this.ready = true;
 	},
 	methods: {
 		c_testInput() {
