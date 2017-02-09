@@ -1,0 +1,234 @@
+$white:#fff;
+$red:#db3652;
+$gray:#AAAAAA;
+$blue:#0074D9;
+$black:#111111;
+$green:#2ecc71;
+$teal:#0074D9;
+$silver:#DDDDDD;
+$orange:#FF851B;
+$navy:#001f3f;
+$purple:#B10DC9;
+$meBlack:#353535;
+$width-iphone5: 320px;
+$width-iphone6: 375px;
+$width-iphone6p: 414px;
+@mixin responsive($name) {
+  @if $name=='iphone5' {
+    @media (max-width: $width-iphone5) {
+      @content;
+    }
+  }
+  @else if $name=='iphone6' {
+    @media (max-width: $width-iphone6) {
+      @content;
+    }
+  }
+  @else if $name=='iphone6p' {
+    @media (max-width: $width-iphone6p) {
+      @content;
+    }
+  }
+}
+
+@mixin text_nowrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+//修改chrome记住密码后自动填充表单的黄色背景
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: rgb(250, 255, 189);
+  /* #FAFFBD; */
+  background-image: none;
+  color: rgb(0, 0, 0);
+}
+
+a,
+img,
+button,
+input,
+textarea,
+p,
+div {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+a,
+img,
+button,
+p,
+span {
+  user-select: none;
+}
+
+.font-red {
+  color: $red;
+}
+
+.font-blue {
+  color: $blue;
+}
+
+.font-gray {
+  color: darken($gray, 50%);
+}
+
+.font-small {
+  font-size: 12px;
+}
+
+.bg-gray {
+  background-color: $gray;
+}
+
+.nowrap {
+  @include text_nowrap;
+}
+
+.btn {
+  border: 0;
+  outline: none;
+}
+
+button:active {
+  outline: none;
+  border: 0;
+}
+
+a,
+input {
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
+html {
+  font-size: 12px;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // user-select: none; 
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  /*禁止选中*/
+  //让页面里的字体变清晰，变细用CSS
+  -webkit-font-smoothing: antialiased;
+  // 点击不显示高亮
+  // -webkit-tap-highlight-color:transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.fadeLeft-out {
+  animation-name: fadeOutLeft;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeLeft-in {
+  animation-name: fadeInLeft;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeRight-in {
+  animation-name: fadeInRight;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeOutRight {
+  from {
+    opacity: 0;
+    transform: none;
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.fadeRight-out {
+  animation-name: fadeOutRight;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}

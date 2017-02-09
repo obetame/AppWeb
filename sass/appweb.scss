@@ -1,0 +1,15 @@
+@import "./utils.scss";
+body {
+  background-color: lighten($gray, 30%);
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+.lists {
+  width: 100%;
+  padding: 10px;
+}
+
+.lists.phone-viewport {
+  // background-color: $gray;
+}
