@@ -22,18 +22,24 @@ let Vue_App = new Vue({
 	created() {
 		this.localStorage = this.getLocalStore().reverse();
 
-		window.getData = (data = null) => {
-			this.timeTaskValue = data;
-			this.timeTask();
+		window.getData = (data) => {
+			if (data) {
+				this.testOut = data;
+				return data;
+			} else {
+				this.testOut = "无返回值(可能报错,建议加入返回值查看是否调用成功)";
+				return this.testOut;
+			}
 		}
-	},
-	mounted() {
+
 		this.ready = true;
 	},
 	methods: {
 		c_testInput() {
+			console.log(this.testInput);
 			if (this.testInput !== "") {
 				this.localStore(this.testInput);
+				this.localStorage = this.getLocalStore().reverse();
 				this.timeTask();
 				this.timeTaskValue = eval(this.testInput);
 
@@ -79,7 +85,7 @@ let Vue_App = new Vue({
 			}
 			newData.push(string); //最后才推入这个
 			//等于10的时候需要截取一部分
-			if (newData.length === 10) {
+			if (newData.length === 5) {
 				newData.splice(0, 5);
 			}
 
@@ -88,6 +94,9 @@ let Vue_App = new Vue({
 		goToTest(code) {
 			this.testInput = code;
 			this.c_testInput();
+		},
+		c_clearTestHis() {
+			window.localStorage.clear("Test")
 		}
 	}
 })
